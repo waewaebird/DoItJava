@@ -69,6 +69,10 @@ public class IntStack {
         return ptr >= max;
     }
 
+    public boolean isEmpty() {
+        return size() == 0;
+    }
+
     public void dump() {
         if(ptr <= 0) {
             System.out.println("스택이 비어 있습니다.");
