@@ -1,22 +1,43 @@
-package chap06;
+package chap06.practice;
 
 import java.util.Scanner;
 
-public class BubbleSort {
-    static void swap(int[] a, int idx1, int idx2) {
-        int t = a[idx1];
-        a[idx1] = a[idx2];
-        a[idx2] = t;
+public class Q3 {
+    static void swap(int[] a, int x, int y) {
+        int temp = a[x];
+        a[x] = a[y];
+        a[y] = temp;
     }
 
     static void bubbleSort(int[] a, int n) {
-        for(int i = 0 ; i < n-1 ; i++) {
+        int compare = 0;
+        int swap = 0;
+
+        for(int i = 0 ; i < n -1 ; i++) {
+
+            System.out.printf("패스%d : \n", i + 1);
+
+            int exchg = 0;
+
             for(int j = n-1 ; j > i ; j--) {
+                for(int m = 0 ; m < n-1; m++) {
+                    System.out.printf("%3d %c" , a[m], (m != j-1) ? ' ' :
+                            (a[j - 1] > a[j]) ? '+' : '-');
+                }
+                System.out.printf("%3d\n", a[n - 1]);
+
                 if(a[j-1] > a[j]){
                     swap(a , j-1, j);
+                    swap++;
+                    exchg++;
                 }
+                compare++;
             }
+            if(exchg == 0) break;
         }
+        System.out.println(compare + " 비교함");
+        System.out.println(swap + " 교환함");
+
     }
 
     public static void main(String[] args) {
